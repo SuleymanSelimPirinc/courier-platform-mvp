@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Ana Veritabanı (PostgreSQL)
+  postgres:
+    image: postgres:15-alpine
+    container_name: courier_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: courier_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - courier_net
+
+  # Cache ve Kuyruk (Redis)
+  redis:
+    image: redis:7-alpine
+    container_name: courier_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - courier_net
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  courier_net:
+    driver: bridge
