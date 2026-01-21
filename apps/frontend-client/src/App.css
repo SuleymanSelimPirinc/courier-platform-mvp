@@ -1,0 +1,64 @@
+/* apps/frontend-client/src/App.css */
+
+/* 1. ANA KAPSAYICI */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2. HARİTA (Leaflet'in kendi class'ını eziyoruz) */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 3. BİLGİ KUTUSU */
+.info-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ddd;
+  min-width: 150px;
+  font-family: sans-serif;
+}
+
+/* 4. BUTON */
+.recenter-button {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.recenter-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+.recenter-button:active {
+  transform: scale(0.95);
+}
+
+/* 5. POPUP İÇERİĞİ (Yeni Eklenen) */
+.popup-content {
+  text-align: center;
+  font-size: 14px;
+}

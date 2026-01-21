@@ -1,0 +1,17 @@
+/* 1. Tüm elementlerin boyut hesabını düzelt (Padding taşma yapmaz) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Sayfayı ekrana çivile */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;       /* Genişlik: Görünen ekranın tamamı */
+  height: 100vh;      /* Yükseklik: Görünen ekranın tamamı */
+  overflow: hidden;   /* Kaydırma çubuklarını yasakla */
+  position: fixed;    /* Sayfayı kıpırdatma */
+  top: 0;
+  left: 0;
+  background-color: #f0f0f0; /* Harita yüklenirken gri görünmesin */
+}
