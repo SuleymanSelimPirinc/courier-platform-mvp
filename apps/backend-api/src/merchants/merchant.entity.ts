@@ -5,14 +5,14 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 import {
-    IMerchant,
     MerchantCategory,
     VerificationStatus,
 } from '@courier/types';
 
 @Entity('merchants')
-export class MerchantEntity implements IMerchant {
+export class MerchantEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -48,6 +48,7 @@ export class MerchantEntity implements IMerchant {
     @Column({ unique: true })
     email: string;
 
+    @Exclude()
     @Column()
     password: string;
 

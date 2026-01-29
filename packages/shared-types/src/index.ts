@@ -79,3 +79,35 @@ export interface IJwtPayload {
   email: string;
   role: UserRole;
 }
+
+// ============================================
+// TESLİMAT (DELIVERY) TİPLERİ
+// ============================================
+
+// Teslimat Durumları
+export enum DeliveryStatus {
+  PENDING = 'PENDING',       // Kurye bekleniyor
+  ASSIGNED = 'ASSIGNED',     // Kurye atandı
+  PICKED_UP = 'PICKED_UP',   // Paket alındı
+  DELIVERED = 'DELIVERED',   // Teslim edildi
+  CANCELLED = 'CANCELLED',   // İptal edildi
+}
+
+// Teslimat Arayüzü (Interface)
+export interface IDelivery {
+  id: string;
+  merchantId: string;
+  courierId?: string;
+  status: DeliveryStatus;
+  pickupAddress: string;
+  pickupLocation: { lat: number; lng: number };
+  dropoffAddress: string;
+  dropoffLocation: { lat: number; lng: number };
+  packageDescription: string;
+  estimatedPrice?: number;
+  notes?: string;
+  createdAt: Date;
+  assignedAt?: Date;
+  pickedUpAt?: Date;
+  deliveredAt?: Date;
+}

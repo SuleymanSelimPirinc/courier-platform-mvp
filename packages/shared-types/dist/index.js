@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserRole = exports.MerchantCategory = exports.VerificationStatus = exports.CourierStatus = void 0;
+exports.DeliveryStatus = exports.UserRole = exports.MerchantCategory = exports.VerificationStatus = exports.CourierStatus = void 0;
 // Kurye Durumları (Enum)
 var CourierStatus;
 (function (CourierStatus) {
@@ -40,3 +40,15 @@ var UserRole;
     UserRole["MERCHANT"] = "MERCHANT";
     UserRole["ADMIN"] = "ADMIN";
 })(UserRole || (exports.UserRole = UserRole = {}));
+// ============================================
+// TESLİMAT (DELIVERY) TİPLERİ
+// ============================================
+// Teslimat Durumları
+var DeliveryStatus;
+(function (DeliveryStatus) {
+    DeliveryStatus["PENDING"] = "PENDING";
+    DeliveryStatus["ASSIGNED"] = "ASSIGNED";
+    DeliveryStatus["PICKED_UP"] = "PICKED_UP";
+    DeliveryStatus["DELIVERED"] = "DELIVERED";
+    DeliveryStatus["CANCELLED"] = "CANCELLED";
+})(DeliveryStatus || (exports.DeliveryStatus = DeliveryStatus = {}));

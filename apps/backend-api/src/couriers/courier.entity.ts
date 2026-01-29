@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Exclude } from 'class-transformer';
 import { CourierStatus } from '@courier/types';
 
 @Entity('couriers')
@@ -12,6 +13,7 @@ export class CourierEntity {
   @Column({ unique: true })
   email: string;
 
+  @Exclude()
   @Column()
   password: string;
 
