@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CouriersModule } from './couriers/couriers.module';
 import { MerchantsModule } from './merchants/merchants.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { MerchantsModule } from './merchants/merchants.module';
       synchronize: true,
     }),
     CouriersModule,
-    MerchantsModule, // Esnaf modülü eklendi
+    MerchantsModule,
+    AuthModule, // JWT Authentication
   ],
 })
 export class AppModule { }

@@ -61,3 +61,21 @@ export interface IMerchant {
   createdAt: Date;
   updatedAt: Date;
 }
+
+// ============================================
+// AUTHENTICATION TİPLERİ
+// ============================================
+
+// Kullanıcı Rolleri
+export enum UserRole {
+  COURIER = 'COURIER',     // Kurye
+  MERCHANT = 'MERCHANT',   // Esnaf
+  ADMIN = 'ADMIN',         // Yönetici
+}
+
+// JWT Payload
+export interface IJwtPayload {
+  sub: string;       // User ID
+  email: string;
+  role: UserRole;
+}

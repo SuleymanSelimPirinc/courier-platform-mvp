@@ -48,3 +48,13 @@ export interface IMerchant {
     createdAt: Date;
     updatedAt: Date;
 }
+export declare enum UserRole {
+    COURIER = "COURIER",// Kurye
+    MERCHANT = "MERCHANT",// Esnaf
+    ADMIN = "ADMIN"
+}
+export interface IJwtPayload {
+    sub: string;
+    email: string;
+    role: UserRole;
+}

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MerchantCategory = exports.VerificationStatus = exports.CourierStatus = void 0;
+exports.UserRole = exports.MerchantCategory = exports.VerificationStatus = exports.CourierStatus = void 0;
 // Kurye Durumları (Enum)
 var CourierStatus;
 (function (CourierStatus) {
@@ -30,3 +30,13 @@ var MerchantCategory;
     MerchantCategory["DOCUMENT"] = "DOCUMENT";
     MerchantCategory["OTHER"] = "OTHER";
 })(MerchantCategory || (exports.MerchantCategory = MerchantCategory = {}));
+// ============================================
+// AUTHENTICATION TİPLERİ
+// ============================================
+// Kullanıcı Rolleri
+var UserRole;
+(function (UserRole) {
+    UserRole["COURIER"] = "COURIER";
+    UserRole["MERCHANT"] = "MERCHANT";
+    UserRole["ADMIN"] = "ADMIN";
+})(UserRole || (exports.UserRole = UserRole = {}));

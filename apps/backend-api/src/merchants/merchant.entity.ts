@@ -45,8 +45,11 @@ export class MerchantEntity implements IMerchant {
     @Column()
     phone: string;
 
-    @Column({ nullable: true })
-    email?: string;
+    @Column({ unique: true })
+    email: string;
+
+    @Column()
+    password: string;
 
     @Column('jsonb', { nullable: true })
     workingHours?: { open: string; close: string }[];
