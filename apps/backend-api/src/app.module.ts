@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CouriersModule } from './couriers/couriers.module'; // <-- Yeni Modülümüz
+import { CouriersModule } from './couriers/couriers.module';
+import { MerchantsModule } from './merchants/merchants.module';
 
 @Module({
   imports: [
@@ -11,10 +12,12 @@ import { CouriersModule } from './couriers/couriers.module'; // <-- Yeni Modül�
       username: 'admin',
       password: 'password123',
       database: 'courier_platform',
-      autoLoadEntities: true, // Entity'leri otomatik bulur (Artık manuel yazmaya gerek yok)
+      autoLoadEntities: true,
       synchronize: true,
     }),
-    CouriersModule, // <-- BURAYA EKLEDIK
+    CouriersModule,
+    MerchantsModule, // Esnaf modülü eklendi
   ],
 })
-export class AppModule {}
+export class AppModule { }
+
