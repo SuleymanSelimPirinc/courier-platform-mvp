@@ -4,8 +4,10 @@ import {
     IsOptional,
     IsNumber,
     ValidateNested,
+    IsEnum,
 } from 'class-validator';
 import { Type } from 'class-transformer';
+import { PackageSize } from '@courier/types';
 
 class LocationDto {
     @IsNumber()
@@ -39,6 +41,10 @@ export class CreateDeliveryDto {
     @IsString()
     @IsNotEmpty()
     packageDescription: string;
+
+    @IsEnum(PackageSize)
+    @IsNotEmpty()
+    packageSize: PackageSize;
 
     @IsNumber()
     @IsOptional()

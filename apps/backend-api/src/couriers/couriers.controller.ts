@@ -5,7 +5,7 @@ import { UpdateLocationDto } from './dto/update-location.dto';
 
 @Controller('couriers')
 export class CouriersController {
-  constructor(private readonly couriersService: CouriersService) {}
+  constructor(private readonly couriersService: CouriersService) { }
 
   // 1. Tüm Kuryeleri Getir
   @Get()
@@ -26,5 +26,14 @@ export class CouriersController {
     @Body() updateLocationDto: UpdateLocationDto,
   ) {
     return this.couriersService.updateLocation(id, updateLocationDto);
+  }
+
+  // Puan verme (Esnaf -> Kurye)
+  @Post(':id/rate')
+  rateCourier(
+    @Param('id') id: string,
+    @Body('score') score: number,
+  ) {
+    return this.couriersService.rateCourier(id, score);
   }
 }

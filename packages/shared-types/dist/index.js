@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeliveryStatus = exports.UserRole = exports.MerchantCategory = exports.VerificationStatus = exports.CourierStatus = void 0;
+exports.DeliveryStatus = exports.PackageSize = exports.UserRole = exports.MerchantCategory = exports.VerificationStatus = exports.VehicleType = exports.CourierStatus = void 0;
 // Kurye Durumları (Enum)
 var CourierStatus;
 (function (CourierStatus) {
@@ -8,6 +8,16 @@ var CourierStatus;
     CourierStatus["IDLE"] = "IDLE";
     CourierStatus["BUSY"] = "BUSY";
 })(CourierStatus || (exports.CourierStatus = CourierStatus = {}));
+// Araç Tipleri (Enum)
+var VehicleType;
+(function (VehicleType) {
+    VehicleType["WALKER"] = "WALKER";
+    VehicleType["BICYCLE"] = "BICYCLE";
+    VehicleType["MOTORCYCLE"] = "MOTORCYCLE";
+    VehicleType["CAR"] = "CAR";
+    VehicleType["VAN"] = "VAN";
+    VehicleType["TRUCK"] = "TRUCK";
+})(VehicleType || (exports.VehicleType = VehicleType = {}));
 // ============================================
 // ESNAF (MERCHANT) TİPLERİ
 // ============================================
@@ -43,6 +53,14 @@ var UserRole;
 // ============================================
 // TESLİMAT (DELIVERY) TİPLERİ
 // ============================================
+// Paket Boyutları
+var PackageSize;
+(function (PackageSize) {
+    PackageSize["SMALL"] = "SMALL";
+    PackageSize["MEDIUM"] = "MEDIUM";
+    PackageSize["LARGE"] = "LARGE";
+    PackageSize["XLARGE"] = "XLARGE";
+})(PackageSize || (exports.PackageSize = PackageSize = {}));
 // Teslimat Durumları
 var DeliveryStatus;
 (function (DeliveryStatus) {

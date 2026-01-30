@@ -3,10 +3,19 @@ export declare enum CourierStatus {
     IDLE = "IDLE",// Boşta, iş bekliyor
     BUSY = "BUSY"
 }
+export declare enum VehicleType {
+    WALKER = "WALKER",// Yaya
+    BICYCLE = "BICYCLE",// Bisiklet
+    MOTORCYCLE = "MOTORCYCLE",// Motor
+    CAR = "CAR",// Araba
+    VAN = "VAN",// Minivan/Panelvan
+    TRUCK = "TRUCK"
+}
 export interface ICourier {
     id: string;
     name: string;
     status: CourierStatus;
+    vehicleType?: VehicleType;
     score: number;
     currentLocation?: {
         lat: number;
@@ -58,6 +67,12 @@ export interface IJwtPayload {
     email: string;
     role: UserRole;
 }
+export declare enum PackageSize {
+    SMALL = "SMALL",// Zarf, dosya (< 2kg)
+    MEDIUM = "MEDIUM",// Ayakkabı kutusu (2-10kg)
+    LARGE = "LARGE",// Koli (10-30kg)
+    XLARGE = "XLARGE"
+}
 export declare enum DeliveryStatus {
     PENDING = "PENDING",// Kurye bekleniyor
     ASSIGNED = "ASSIGNED",// Kurye atandı
@@ -81,6 +96,7 @@ export interface IDelivery {
         lng: number;
     };
     packageDescription: string;
+    packageSize?: PackageSize;
     estimatedPrice?: number;
     notes?: string;
     createdAt: Date;

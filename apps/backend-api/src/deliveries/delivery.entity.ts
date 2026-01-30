@@ -6,7 +6,7 @@ import {
     ManyToOne,
     JoinColumn,
 } from 'typeorm';
-import { DeliveryStatus } from '@courier/types';
+import { DeliveryStatus, PackageSize } from '@courier/types';
 import { MerchantEntity } from '../merchants/merchant.entity';
 import { CourierEntity } from '../couriers/courier.entity';
 
@@ -56,6 +56,13 @@ export class DeliveryEntity {
     // Paket bilgisi
     @Column()
     packageDescription: string;
+
+    @Column({
+        type: 'enum',
+        enum: PackageSize,
+        default: PackageSize.SMALL,
+    })
+    packageSize: PackageSize;
 
     @Column('decimal', { precision: 10, scale: 2, nullable: true })
     estimatedPrice?: number;

@@ -5,11 +5,22 @@ export enum CourierStatus {
   BUSY = 'BUSY',       // Meşgul, paket taşıyor
 }
 
+// Araç Tipleri (Enum)
+export enum VehicleType {
+  WALKER = 'WALKER',         // Yaya
+  BICYCLE = 'BICYCLE',       // Bisiklet
+  MOTORCYCLE = 'MOTORCYCLE', // Motor
+  CAR = 'CAR',               // Araba
+  VAN = 'VAN',               // Minivan/Panelvan
+  TRUCK = 'TRUCK',           // Kamyonet
+}
+
 // Kurye Arayüzü (Interface)
 export interface ICourier {
   id: string;
   name: string;
-  status: CourierStatus; // Yukarıdaki Enum'ı kullanıyoruz
+  status: CourierStatus;
+  vehicleType?: VehicleType; // Opsiyonel şimdilik
   score: number;
   currentLocation?: {
     lat: number;
@@ -84,6 +95,14 @@ export interface IJwtPayload {
 // TESLİMAT (DELIVERY) TİPLERİ
 // ============================================
 
+// Paket Boyutları
+export enum PackageSize {
+  SMALL = 'SMALL',     // Zarf, dosya (< 2kg)
+  MEDIUM = 'MEDIUM',   // Ayakkabı kutusu (2-10kg)
+  LARGE = 'LARGE',     // Koli (10-30kg)
+  XLARGE = 'XLARGE',   // Mobilya, beyaz eşya (>30kg)
+}
+
 // Teslimat Durumları
 export enum DeliveryStatus {
   PENDING = 'PENDING',       // Kurye bekleniyor
@@ -104,6 +123,7 @@ export interface IDelivery {
   dropoffAddress: string;
   dropoffLocation: { lat: number; lng: number };
   packageDescription: string;
+  packageSize?: PackageSize; // Yeni alan
   estimatedPrice?: number;
   notes?: string;
   createdAt: Date;
